@@ -61,7 +61,7 @@ private static Empregado coletarInformacoesDoEmpregado() {
     System.out.print("Digite o ID: ");
     Scanner scanner;
     int id = scanner.nextInt();
-    scanner.nextLine();  // Consume newline
+    scanner.nextLine();
 
     System.out.print("Digite o nome: ");
     String nome = scanner.nextLine();
