@@ -1,4 +1,6 @@
-public class Empregado {
+package Modelo;
+public class Empregado{
+
     private int id;
     private String nome;
     private String email;
@@ -7,6 +9,19 @@ public class Empregado {
     private String problemasMedicos;
 
     public Empregado(int id, String nome, String email, String telefone, String alergias, String problemasMedicos){
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID deve ser um número positivo.");
+        }
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser vazio.");
+        }
+        if (email == null || !email.contains("@")) {
+            throw new IllegalArgumentException("Email inválido.");
+        }
+        if (telefone == null || telefone.trim().isEmpty()) {
+            throw new IllegalArgumentException("Telefone não pode ser vazio.");
+        }
+
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -43,7 +58,7 @@ public class Empregado {
 
         public void setTelefone (String telfone)
         {
-            this.telefone = telefone;
+            this.telefone = telfone;
         }
 
         public String getAlergias() {
@@ -64,28 +79,18 @@ public class Empregado {
             this.problemasMedicos = problemasMedicos;
         }
 
-
-
-
-
-
-
-    }
-
-        
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public void setId(int id) {
+            this.id = id;
+        }
+        public String toString() {
+            return "Empregado{" +
+                    "id=" + id +
+                    ", nome='" + nome + '\'' +
+                    ", email='" + email + '\'' +
+                    ", telefone='" + telefone + '\'' +
+                    ", alergias='" + alergias + '\'' +
+                    ", problemasMedicos='" + problemasMedicos + '\'' +
+                    '}';
+                
+        }
+}
